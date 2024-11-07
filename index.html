@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Brain Reset</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1, p {
+      margin: 10px 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #666;
+    }
+
+    .disclosure {
+      font-size: 1em;
+      color: #ff0000;
+      margin-bottom: 20px;
+    }
+
+    .flashing {
+      animation: irregularFlash 8s infinite;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+    }
+
+    @keyframes irregularFlash {
+      0% { background-color: #ff5722; color: #ffffff; }
+      15% { background-color: #4caf50; color: #ffffff; }
+      30% { background-color: #2196f3; color: #ffffff; }
+      45% { background-color: #ffc107; color: #000000; }
+      60% { background-color: #9e9e9e; color: #ffffff; }
+      75% { background-color: #3f51b5; color: #ffffff; }
+      90% { background-color: #673ab7; color: #ffffff; }
+      100% { background-color: #ffeb3b; color: #000000; }
+    }
+
+    .breath-circle {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      border-radius: 50%;
+      background-color: #009688;
+      animation: breathe 8s infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); background-color: #ff5722; }
+      50% { transform: scale(1.5); background-color: #03a9f4; }
+    }
+
+    .affirmations {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #ff5722;
+      margin: 15px 0;
+      animation: fade-in 5s infinite alternate;
+    }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .peripheral {
+      position: absolute;
+      width: 20px;
+      height: 100vh;
+      background-color: transparent;
+      animation: peripheralFlash 4s infinite alternate;
+    }
+
+    .left { left: 0; }
+    .right { right: 0; }
+
+    @keyframes peripheralFlash {
+      0% { background-color: #ff5722; }
+      50% { background-color: #4caf50; }
+      100% { background-color: #ffeb3b; }
+    }
+  </style>
+</head>
+<body>
+  <p class="disclosure">⚠️ Warning: This tool contains flashing lights and colors. If you are sensitive to flashing lights or have a history of photosensitive epilepsy, use with caution or avoid entirely.
+    DISCLAIMER: FOR ENTERTAINMENT PURPOSES ONLY.  
+  </p>
+
+  <div class="peripheral left"></div>
+  <div class="peripheral right"></div>
+  
+  <div class="flashing">
+    <h1>Reset Your Mind</h1>
+    <p>Follow the breathing guide below.</p>
+    <div class="breath-circle"></div>
+    <div class="affirmations" id="affirmations">You are in control.</div>
+    <p id="exercise"></p>
+  </div>
+
+  <audio id="resetSound" loop>
+    <source src="https://bigsoundbank.com/UPLOAD/mp3/1566.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const affirmations = [
+      "You are in control.",
+      "Every breath strengthens you.",
+      "You can walk away empowered.",
+      "Calm and focused.",
+      "Your choices define you."
+    ];
+
+    const exercises = [
+      "Add 7 to 13.",
+      "Name 3 animals that start with 'C'.",
+      "Subtract 15 from 45.",
+      "What's 8 x 7?",
+      "Think of 3 red objects."
+    ];
+
+    const affirmationText = document.getElementById("affirmations");
+    const exerciseText = document.getElementById("exercise");
+
+    setInterval(() => {
+      const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+      affirmationText.textContent = randomAffirmation;
+    }, 5000);
+
+    setInterval(() => {
+      const randomExercise = exercises[Math.floor(Math.random() * exercises.length)];
+      exerciseText.textContent = randomExercise;
+    }, 10000);
+
+    const sound = document.getElementById("resetSound");
+    sound.play();
+  </script>
+</body>
+</html>
